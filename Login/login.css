@@ -1,0 +1,100 @@
+:root{
+    --cor-fundo: rgb(0, 143, 190);
+    --color-text: #ffff;
+    --color-login: rgb(59, 48, 128);
+    --color-login-border: rgb(16, 9, 63);
+    --color-link: rgb(0, 212, 255);
+    --color-button:  #0066ff;
+    --color-button-hover: #0046af;
+    --color-input-box: ;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--cor-fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+a{
+    
+    color: var(--color-link)
+}
+a:hover{
+    color:#0046af;
+}
+.login{
+    color: var(--color-text);
+    border-radius: 10px;
+    border: 3px solid var(--color-login-border);
+    padding: 3rem;
+    background-color: var(--color-login);
+}
+.login h1{
+    position: relative;
+    top: -20px;
+}
+.input-box{
+    position: relative;
+    border-radius: 20px;
+    margin: 5px;
+    background-color: var();
+}
+
+.register-link{
+    margin: 40px;
+    position: relative;
+    top: 10px;
+}
+form button[type="submit"],
+form input[type="submit"] {
+    position: relative;
+    margin-top: 30px;
+    color: var(--color-text);
+    background-color: var(--color-button);
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+form button[type="submit"]:hover,
+form input[type="submit"] :hover{
+    background-color:var(--color-button-hover);
+}
+form button[type="submit"]:active,
+form input[type="submit"]:active {
+  transform: scale(0.98);   
+}
+.input-box label{
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    font-size: 20px;
+    color: white;
+    cursor: text;
+    transition: 0.5s ease-in-out;
+}
+.input-box .input{
+    width: 100%;
+    padding: 3px;
+    outline: 0;
+    background-color: var(--color-login);
+    border: none;
+    border-bottom: 2px solid white;
+}
+.input:focus,
+.input:valid{
+    border-bottom: 2px solid rgb(158, 192, 255);
+}
+.input:focus ~ label,
+.input:valid ~ label{
+    transform: translateY(-25) !important;
+    font-size: 5px;
+}
+

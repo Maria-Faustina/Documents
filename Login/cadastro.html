@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>NewDent</title>
+    
+</head>
+<body>
+    <script src="script.js" defer></script>
+    
+    <section class="cadastro">
+        <h1>Cadastro</h1>
+        <form action="conexao.php" method="POST" class="form">
+    
+    <div class="input-box">
+    
+        <label for="usuario"></label>
+        <input type="text" id="user" name="name" placeholder="Seu nome" required class="input">
+    </div>
+
+    <div class="input-box">
+    
+        <label for="email"></label>
+        <input type="text" id="email" name="email" placeholder="Email" required class="input">
+    </div>
+    
+    
+    <div class="input-box">
+        <label for="senha"></label>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required class="input">
+        
+    </div>
+    
+    <div class="input-box">
+        <label for="confirme sua senha"></label>
+        <input type="password" id="c_senha" name="senha" placeholder="Confirme sua senha" required class="input">
+        
+    </div>
+
+    <input type="submit" onclick ="cadastro(); return false">
+
+</form>
+    </section>
+    
+</body>
+</html>
