@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro - NewDent</title>
+</head>
+<body>
+    <script src="validacao.js" defer></script>
+    
+    <section class="cadastro-container">
+        <div class="logo-area">
+            <img src="img/logo.png" alt="Logo NewDent" class="logo-img">
+            <h1>Crie sua Conta</h1>
+            <p>Junte-se à nossa clínica.</p>
+        </div>
+
+        <form action="cadastro.php" method="POST" class="form" onsubmit="return validarCadastro(event)">
+            <div class="input-box">
+                <input type="email" id="email" name="email" placeholder="Seu email" required class="input">
+            </div>
+        
+            <div class="input-box">
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required class="input">
+            </div>
+        
+            <div class="input-box">
+                <input type="password" id="c_senha" name="c_senha" placeholder="Confirme sua senha" required class="input">
+            </div>
+
+            <button type="submit" class="btn-submit">Cadastrar</button>
+
+            <div class="register-link">
+                <p>Já tem uma conta? <a href="login.html">Faça seu login</a></p>
+                <p><a href="index.php">Voltar para o Início</a></p>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
