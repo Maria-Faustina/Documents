@@ -1,1 +1,140 @@
-@import url('login.css');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #eef9fb 0%, #ffffff 100%);
+    color: #333;
+}
+
+.container-cadastro {
+    width: 100%;
+    max-width: 440px;
+    padding: 38px 40px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+}
+
+.container-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.container-logo h1 {
+    margin-bottom: 8px;
+    color: #168da5;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.container-logo p {
+    color: #777;
+    font-size: 14px;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container-campo-input {
+    width: 100%;
+    margin-bottom: 17px;
+}
+
+.campo-input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    border: 1px solid #d5dfe2;
+    border-radius: 9px;
+    outline: none;
+    background: #fff;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-input::placeholder {
+    color: #999;
+}
+
+.campo-input:focus {
+    border-color: #168da5;
+    box-shadow: 0 0 0 3px rgba(22, 141, 165, 0.12);
+}
+
+.btn-submit {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 9px;
+    background: #168da5;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background: #0e7185;
+    transform: translateY(-1px);
+}
+
+.container-link {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.container-link p {
+    margin: 8px 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.container-link a {
+    color: #168da5;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.container-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .container-cadastro {
+        padding: 30px 22px;
+    }
+
+    .container-logo h1 {
+        font-size: 24px;
+    }
+}
