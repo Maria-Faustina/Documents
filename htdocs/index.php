@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,13 +18,14 @@
             <img src="img/logo.png" alt="Logo" class="logo">
             <img src="img/nome_loja.png" alt="NewDent" class="logo-texto">
         </div>
-        
+
         <ul class="container-nav">
-            <li><a href="#">Início</a></li>
+            <li><a href="index.php">Início</a></li>
             <li><a href="#">Serviços</a></li>
-            
-            <?php if(isset($_SESSION['usuario_email'])): ?>
-                <li class="user-logado"> <?= explode('@', $_SESSION['usuario_email'])[0]; ?></li>
+
+            <?php if (isset($_SESSION['usuario_id'])): ?>
+                <li><a href="meus_agendamentos.php" class="btn-nav">Meus Agendamentos</a></li>
+                <li class="user-logado"> <?= htmlspecialchars(explode('@', $_SESSION['usuario_email'])[0]); ?></li>
                 <li><a href="sair.php" class="btn-nav btn-sair">Sair</a></li>
             <?php else: ?>
                 <li><a href="login.html" class="btn-nav">Login</a></li>
@@ -36,43 +39,37 @@
             <div class="conteudo">
                 <h1>Sorria com Confiança</h1>
                 <p>Cuidar da sua saúde bucal não precisa ser sinônimo de preços abusivos. Na NewDent, você tem acesso aos melhores tratamentos conduzidos por especialistas.</p>
-                <a href="agend.html" class="btn-agendar">Agende sua Avaliação!</a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="agend.php" class="btn-agendar">Agende sua Avaliação!</a>
+                <?php else: ?>
+                    <a href="login.html?redirect=agend.php" class="btn-agendar">Agende sua Avaliação!</a>
+                <?php endif; ?>
             </div>
         </section>
 
         <section class="container-section">
             <article class="artigo">
-                <div class="imagem-box">
-                    <img src="img/tecH.png" alt="Alta Tecnologia" class="imagem-destaque">
-                </div>
+                <div class="imagem-box"><img src="img/tecH.png" alt="Alta Tecnologia" class="imagem-destaque"></div>
                 <h3>Alta Tecnologia</h3>
                 <p>Equipamentos de última geração para diagnósticos precisos e tratamentos indolor.</p>
             </article>
             <article class="artigo">
-                <div class="imagem-box">
-                    <img src="img/custoB.png" alt="Custo-Benefício" class="imagem-destaque">
-                </div>
+                <div class="imagem-box"><img src="img/custoB.png" alt="Custo-Benefício" class="imagem-destaque"></div>
                 <h3>Custo-Benefício</h3>
                 <p>Planos dentários acessíveis e condições de pagamento que cabem no seu bolso.</p>
             </article>
             <article class="artigo">
-                <div class="imagem-box">
-                    <img src="img/dentista_pr.png" alt="especialistas" class="imagem-destaque">
-                </div>
+                <div class="imagem-box"><img src="img/dentista_pr.png" alt="especialistas" class="imagem-destaque"></div>
                 <h3>Especialistas</h3>
                 <p>Nossa equipa é formada por profissionais altamente qualificados e dedicados.</p>
             </article>
         </section>
 
         <section class="servico">
-            <div class="banner">
-                <h2>A NewDent oferece o melhor plano dentário para você e sua família.</h2> 
-            </div>
+            <div class="banner"><h2>A NewDent oferece o melhor plano dentário para você e sua família.</h2></div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 NewDent. Todos os direitos reservados.</p>
-    </footer>
+    <footer><p>&copy; 2026 NewDent. Todos os direitos reservados.</p></footer>
 </body>
 </html>
