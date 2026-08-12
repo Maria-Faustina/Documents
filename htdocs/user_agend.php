@@ -19,7 +19,7 @@ try {
     die('Erro ao carregar os agendamentos.');
 }
 
-// Converte os valores usados no <select> em nomes completos para exibição.
+
 $nomesServicos = [
     'limpeza' => 'Limpeza',
     'clareamentoDental' => 'Clareamento Dental',
