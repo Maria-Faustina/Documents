@@ -2,8 +2,8 @@
 session_start();
 require 'conexao.php';
 
-// Somente usuários logados podem realizar agendamentos.
-if (!isset($_SESSION['usuario_id'])) {
+
+if (!isset($_SESSION['id'])) {
     header('Location: login.html?redirect=agend.php');
     exit;
 }
@@ -19,13 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $sql = "INSERT INTO agendamento
-                (usuario_id, nome, sobrenome, telefone, horario, CPF, servico)
+                (id, nome, sobrenome, telefone, horario, CPF, servico)
                 VALUES
-                (:usuario_id, :nome, :sobrenome, :telefone, :horario, :CPF, :servico)";
+                (:id, :nome, :sobrenome, :telefone, :horario, :CPF, :servico)";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            ':usuario_id' => $usuario_id,
+            ':id' => $usuario_id,
             ':nome' => $nome,
             ':sobrenome' => $sobrenome,
             ':telefone' => $telefone,
@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':servico' => $servico
         ]);
 
-        // Mantém o usuário logado e volta para a página inicial.
         echo "<script>alert('Agendamento realizado com sucesso!'); window.location.href='index.php';</script>";
         exit;
     } catch (PDOException $e) {
