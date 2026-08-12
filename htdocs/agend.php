@@ -34,10 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':servico' => $servico
         ]);
 
-        echo "<script>alert('Agendamento realizado com sucesso!'); window.location.href='meus_agendamentos.php';</script>";
+        // Mantém o usuário logado e volta para a página inicial.
+        echo "<script>alert('Agendamento realizado com sucesso!'); window.location.href='index.php';</script>";
         exit;
     } catch (PDOException $e) {
-        echo "Erro no agendamento: " . htmlspecialchars($e->getMessage());
+        echo "<script>alert('Erro ao realizar o agendamento. Tente novamente.'); window.history.back();</script>";
+        exit;
     }
 }
 ?>
