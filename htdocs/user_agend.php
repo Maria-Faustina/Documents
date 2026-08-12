@@ -19,14 +19,14 @@ try {
     die('Erro ao carregar os agendamentos.');
 }
 
-
 $nomesServicos = [
     'limpeza' => 'Limpeza',
     'clareamentoDental' => 'Clareamento Dental',
     'resinaComposta' => 'Resina Composta',
-    'reconstruçãoDentaria' => 'Reconstrução Dentária',
+    'reconstruçãoDentaria' => 'Reconstruções Dentárias',
+    'reconstrucaoDentaria' => 'Reconstruções Dentárias',
     'aparelhos' => 'Aparelho',
-    'implantesDental' => 'Implante Dental'
+    'implantesDental' => 'Implantes Dental'
 ];
 ?>
 <!DOCTYPE html>
@@ -63,13 +63,14 @@ $nomesServicos = [
             <?php else: ?>
                 <?php foreach ($agendamentos as $agendamento): ?>
                     <?php
-                        $servico = $nomesServicos[$agendamento['servico']] ?? $agendamento['servico'];
+                        $valorServico = trim((string) $agendamento['servico']);
+                        $servico = $nomesServicos[$valorServico] ?? $valorServico;
                     ?>
                     <article class="artigo">
-                        <h3><?= htmlspecialchars($servico) ?></h3>
-                        <p><strong>Data e horário:</strong> <?= htmlspecialchars($agendamento['horario']) ?></p>
-                        <p><strong>Paciente:</strong> <?= htmlspecialchars($agendamento['nome'] . ' ' . $agendamento['sobrenome']) ?></p>
-                        <p><strong>Telefone:</strong> <?= htmlspecialchars($agendamento['telefone']) ?></p>
+                        <h3><?= htmlspecialchars($servico, ENT_QUOTES, 'UTF-8') ?></h3>
+                        <p><strong>Data e horário:</strong> <?= htmlspecialchars($agendamento['horario'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <p><strong>Paciente:</strong> <?= htmlspecialchars($agendamento['nome'] . ' ' . $agendamento['sobrenome'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <p><strong>Telefone:</strong> <?= htmlspecialchars($agendamento['telefone'], ENT_QUOTES, 'UTF-8') ?></p>
                     </article>
                 <?php endforeach; ?>
             <?php endif; ?>
