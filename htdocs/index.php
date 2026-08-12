@@ -18,7 +18,6 @@
         </div>
         <ul class="container-nav">
             <li><a href="index.php">Início</a></li>
-            <li><a href="#">Serviços</a></li>
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <li><a href="user_agend.php">Meus Agendamentos</a></li>
                 <li class="user-logado"><?= htmlspecialchars(explode('@', $_SESSION['usuario_email'])[0]); ?></li>
