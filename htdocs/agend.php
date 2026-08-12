@@ -1,15 +1,17 @@
 <?php
 session_start();
-require 'conexao.php';
 
-
-if (!isset($_SESSION['id'])) {
-    header('Location: login.html?redirect=agend.php');
+// O login salva o usuário em usuario_id.
+// Se não existir, o usuário realmente não está autenticado.
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.html?redirect=agend.html');
     exit;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario_id = $_SESSION['usuario_id'];
+require 'conexao.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario_id = (int) $_SESSION['usuario_id'];
     $nome = trim($_POST['nome'] ?? '');
     $sobrenome = trim($_POST['sobrenome'] ?? '');
     $servico = trim($_POST['servico'] ?? '');
@@ -19,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $sql = "INSERT INTO agendamento
-                (id, nome, sobrenome, telefone, horario, CPF, servico)
+                (usuario_id, nome, sobrenome, telefone, horario, CPF, servico)
                 VALUES
-                (:id, :nome, :sobrenome, :telefone, :horario, :CPF, :servico)";
+                (:usuario_id, :nome, :sobrenome, :telefone, :horario, :CPF, :servico)";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            ':id' => $usuario_id,
+            ':usuario_id' => $usuario_id,
             ':nome' => $nome,
             ':sobrenome' => $sobrenome,
             ':telefone' => $telefone,
@@ -34,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':servico' => $servico
         ]);
 
-        echo "<script>alert('Agendamento realizado com sucesso!'); window.location.href='index.php';</script>";
+        echo "<script>alert('Agendamento realizado com sucesso!'); window.location.href='meus_agendamentos.php';</script>";
         exit;
     } catch (PDOException $e) {
-        echo "<script>alert('Erro ao realizar o agendamento. Tente novamente.'); window.history.back();</script>";
+        echo "<script>alert('Erro ao realizar o agendamento: ' + " . json_encode($e->getMessage()) . "); window.history.back();</script>";
         exit;
     }
 }
