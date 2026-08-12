@@ -19,17 +19,15 @@
         
         <ul class="container-nav">
             <li><a href="#">Início</a></li>
-            <li><a href="#">Serviços</a></li>
+            <li><a href="user_agend.php">Meus agedamentos</a></li>
             
             <?php if(isset($_SESSION['usuario_email'])): ?>
-                <li class="user-logado"> <?= explode('@', $_SESSION['usuario_email'])[0]; ?></li>
+                <li class="user-logado"><?= explode('@', $_SESSION['usuario_email'])[0]; ?></li>
                 <li><a href="sair.php" class="btn-nav btn-sair">Sair</a></li>
             <?php else: ?>
                 <li><a href="login.html" class="btn-nav">Login</a></li>
                 <li><a href="cadastro.html" class="btn-nav">Cadastro</a></li>
             <?php endif; ?>
-            
-            
         </ul>
     </header>
 
@@ -38,11 +36,7 @@
             <div class="conteudo">
                 <h1>Sorria com Confiança</h1>
                 <p>Cuidar da sua saúde bucal não precisa ser sinônimo de preços abusivos. Na NewDent, você tem acesso aos melhores tratamentos conduzidos por especialistas.</p>
-                <?php if (isset($_SESSION['usuario_id'])): ?>
                 <a href="agend.html" class="btn-agendar">Agende sua Avaliação!</a>
-                <?php else: ?>
-                <a href="login.html?redirect=agend.html" class="btn-agendar">Agende sua Avaliação!</a>
-            <?php endif; ?>
             </div>
         </section>
 
