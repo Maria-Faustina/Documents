@@ -18,6 +18,16 @@ try {
 } catch (PDOException $e) {
     die('Erro ao carregar os agendamentos.');
 }
+
+// Converte os valores usados no <select> em nomes completos para exibição.
+$nomesServicos = [
+    'limpeza' => 'Limpeza',
+    'clareamentoDental' => 'Clareamento Dental',
+    'resinaComposta' => 'Resina Composta',
+    'reconstruçãoDentaria' => 'Reconstrução Dentária',
+    'aparelhos' => 'Aparelho',
+    'implantesDental' => 'Implante Dental'
+];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -52,8 +62,11 @@ try {
                 <p><a href="agend.html" class="btn-agendar">Fazer um Agendamento</a></p>
             <?php else: ?>
                 <?php foreach ($agendamentos as $agendamento): ?>
+                    <?php
+                        $servico = $nomesServicos[$agendamento['servico']] ?? $agendamento['servico'];
+                    ?>
                     <article class="artigo">
-                        <h3><?= htmlspecialchars($agendamento['servico']) ?></h3>
+                        <h3><?= htmlspecialchars($servico) ?></h3>
                         <p><strong>Data e horário:</strong> <?= htmlspecialchars($agendamento['horario']) ?></p>
                         <p><strong>Paciente:</strong> <?= htmlspecialchars($agendamento['nome'] . ' ' . $agendamento['sobrenome']) ?></p>
                         <p><strong>Telefone:</strong> <?= htmlspecialchars($agendamento['telefone']) ?></p>
