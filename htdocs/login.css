@@ -22,7 +22,7 @@ body {
     min-height: 100vh;
 }
 
-.login-container, .cadastro-container {
+.login-container, .container-cadastro{
     background-color: var(--white);
     padding: 40px;
     border-radius: 20px;
