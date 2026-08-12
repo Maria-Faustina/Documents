@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cadastro.css">
     <title>Cadastro - NewDent</title>
 </head>
@@ -11,28 +11,28 @@
     <script src="validacao.js" defer></script>
 
     <section class="container-cadastro">
-        <div class="container-logo">
-            <img src="img/logo.png" alt="Logo NewDent" class="logo">
+        <div class="logo-area">
+            <img src="img/logo.png" alt="Logo NewDent" class="logo-img">
             <h1>Crie sua Conta</h1>
             <p>Junte-se à nossa clínica.</p>
         </div>
 
-        <form action="cadastro.php" method="POST" class="container-form" onsubmit="return validarCadastro(event)">
-            <div class="container-campo-input">
-                <input type="email" id="email" name="email" placeholder="Seu email" required class="campo-input">
+        <form action="cadastro.php" method="POST" onsubmit="return validarCadastro(event)">
+            <div class="input-box">
+                <input type="email" id="email" name="email" placeholder="Seu email" required class="input">
             </div>
 
-            <div class="container-campo-input">
-                <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required class="campo-input">
+            <div class="input-box">
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required class="input">
             </div>
 
-            <div class="container-campo-input">
-                <input type="password" id="c_senha" name="c_senha" placeholder="Confirme sua senha" required class="campo-input">
+            <div class="input-box">
+                <input type="password" id="c_senha" name="c_senha" placeholder="Confirme sua senha" required class="input">
             </div>
 
             <button type="submit" class="btn-submit">Cadastrar</button>
 
-            <div class="container-link">
+            <div class="register-link">
                 <p>Já tem uma conta? <a href="login.html">Faça seu login</a></p>
                 <p><a href="index.php">Voltar para o Início</a></p>
             </div>
